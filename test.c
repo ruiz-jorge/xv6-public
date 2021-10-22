@@ -5,6 +5,8 @@
 
 int main(int argc, char *argv[]){
 
+	printf(1, "\nTest Program TEST\n");
+
 	int pid;
 	int status = 10;
 
@@ -13,12 +15,15 @@ int main(int argc, char *argv[]){
 		int secondPID = waitpid(pid, &status, 0);
 		
 		printf(1, "\nparent pid: %d child pid: %d status: %d", getpid(), secondPID, status);
+		sleep(2);
+		printf(1, "\n");
 		exit(0);
 
 	}
 	else {
 		printf(1, "\nchild pid: %d status: %d", getpid(), status);
-		printf(1, "\n\n");
+		sleep(2);
+		printf(1, "\n");
 		exit(0);
 	}
 
