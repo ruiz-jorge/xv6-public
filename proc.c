@@ -343,7 +343,7 @@ waitpid(int pid, int *status, int options)
         p->parent = 0;
         p->name[0] = 0;
         p->killed = 0;
-        p->stats = UNUSED;
+        p->state = UNUSED;
         release(&ptable.lock);
         if(status){
           *status = p->status;
@@ -357,7 +357,7 @@ waitpid(int pid, int *status, int options)
       return -1;
     }
 
-    if(options == WNOHYANG){
+    if(options == WNOHANG){
       release(&ptable.lock);
       return 0;
     }
